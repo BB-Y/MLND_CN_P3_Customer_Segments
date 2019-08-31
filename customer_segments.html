@@ -14789,6 +14789,39 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[34]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(440, 6)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14805,9 +14838,11 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答:</strong>
-第[65, 66, 128, 154, 75]条数据均存在多个异常值，应从数据集中删除这些数据点。
-k-means算法需要计算数据点与均值之间的距离，对异常值的存在很敏感,因为“均值”本身就不是一个健壮的统计量。而异常值是这样一种极端的观测结果,它们在数值上远离样本数据集的均值,其存在使得所有基于均值和方差的统计测试一定程度地失真。</p>
+<p><strong>回答:</strong></p>
+<ul>
+<li>第[65, 66, 128, 154, 75]条数据均存在多个异常值，应从数据集中删除这些数据点。k-means算法需要计算数据点与均值之间的距离，对异常值的存在很敏感,因为“均值”本身就不是一个健壮的统计量。而异常值是这样一种极端的观测结果,它们在数值上远离样本数据集的均值,其存在使得所有基于均值和方差的统计测试一定程度地失真。</li>
+<li>其他43个异常点在整个数据集的占比接近10%，整个数据集有440条数据，如果删除这43个异常点，数据损失过多，可能无法得到好的模型。 相对于存在多个异常值的异常点，只有一个异常值的异常点造成的误差小一些，应在容忍的范围内。 基于这两点考虑，不删除这43个异常点。</li>
+</ul>
 
 </div>
 </div>
